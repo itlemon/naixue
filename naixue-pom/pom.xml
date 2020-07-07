@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.itlemon.naixue</groupId>
+    <artifactId>naixue-pom</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <description>奈学教育课堂笔记</description>
+
+    <developers>
+        <developer>
+            <name>itlemon</name>
+            <email>lemon_jiang@aliyun.com</email>
+            <url>https://itlemon.blog.csdn.net</url>
+        </developer>
+    </developers>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <modules>
+        <module>../naixue-chapter1</module>
+    </modules>
+
+    <dependencyManagement>
+
+    </dependencyManagement>
+
+</project>
