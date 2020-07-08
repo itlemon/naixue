@@ -10,7 +10,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>naixue-chapter1</artifactId>
+    <artifactId>naixue-chapter1-reflection</artifactId>
+    <description>奈学教育第一堂课：反射</description>
 
 
 </project>
