@@ -1,8 +1,5 @@
 package cn.itlemon.naixue.reflection.classloader;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 /**
  * 类加载器测试类
  *
@@ -11,27 +8,14 @@ import java.io.InputStream;
  */
 public class ClassLoaderTest {
 
-    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        ClassLoader loader = new ClassLoader() {
-            @Override
-            public Class<?> loadClass(String name) throws ClassNotFoundException {
-                try {
-                    String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
-                    InputStream is = getClass().getResourceAsStream(fileName);
-                    if (is == null) {
-                        return super.loadClass(name);
-                    }
-                    byte[] bytes = new byte[is.available()];
-                    is.read(bytes);
-                    return defineClass(name, bytes, 0, bytes.length);
-                } catch (IOException e) {
-                    throw new ClassNotFoundException();
-                }
-            }
-        };
-        Object instance = loader.loadClass(ClassLoaderTest.class.getName()).newInstance();
-        System.out.println(instance.getClass());
-        System.out.println(instance instanceof ClassLoaderTest);
+    public static void main(String[] args) throws ClassNotFoundException {
+        // 首先打印出main方法中ClassLoaderTest的类加载器
+        System.out.println("ClassLoaderTest默认加载器是：" + ClassLoaderTest.class.getClassLoader());
+        CustomClassLoader loader = new CustomClassLoader();
+        // 使用我们自定义的类加载器再次加载一遍
+        Class<?> aClass = loader.loadClass(ClassLoaderTest.class.getName());
+        System.out.println("ClassLoaderTest加载器是：" + aClass.getClassLoader());
+        System.out.println("不同类加载器加载的ClassLoaderTest的Class是否相等：" + aClass.equals(ClassLoaderTest.class));
     }
 
 }
