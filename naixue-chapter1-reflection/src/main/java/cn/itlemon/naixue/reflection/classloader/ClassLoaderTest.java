@@ -8,6 +8,8 @@ package cn.itlemon.naixue.reflection.classloader;
  */
 public class ClassLoaderTest {
 
+    private static int index = 10;
+
     public static void main(String[] args) throws ClassNotFoundException {
         // 首先打印出main方法中ClassLoaderTest的类加载器
         System.out.println("ClassLoaderTest默认加载器是：" + ClassLoaderTest.class.getClassLoader());
